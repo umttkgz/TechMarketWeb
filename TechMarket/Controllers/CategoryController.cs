@@ -16,5 +16,6 @@ namespace TechMarket.Controllers
             List<Category> objCategoryList = _db.Categories.ToList();
             return View(objCategoryList);
         }
+
     }
 }
