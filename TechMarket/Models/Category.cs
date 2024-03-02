@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace TechMarket.Models
 {
@@ -7,7 +8,9 @@ namespace TechMarket.Models
         [Key]
         public int Id { get; set; }
         [Required]
+        [DisplayName("Kategori Adı")]
         public string Name { get; set; }
+        [DisplayName("Gösterim Sırası")]
         public int DisplayOrder { get; set; }
     }
 }
