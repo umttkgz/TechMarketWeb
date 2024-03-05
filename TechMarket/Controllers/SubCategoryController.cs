@@ -4,16 +4,16 @@ using TechMarket.Models;
 
 namespace TechMarket.Controllers
 {
-    public class CategoryController : Controller
+    public class SubCategoryController : Controller
     {
         private readonly AppDbContext _db;
-        public CategoryController(AppDbContext db)
+        public SubCategoryController(AppDbContext db)
         {
             _db = db;
         }
         public IActionResult Index()
         {
-            List<Category> objCategoryList = _db.Categories.ToList();
+            List<SubCategory> objCategoryList = _db.SubCategories.ToList();
             return View(objCategoryList);
         }
         public IActionResult Create()
@@ -21,11 +21,11 @@ namespace TechMarket.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Create(Category obj)
+        public IActionResult Create(SubCategory obj)
         {
             if (ModelState.IsValid)
             {
-                _db.Categories.Add(obj);
+                _db.SubCategories.Add(obj);
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
