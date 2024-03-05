@@ -23,6 +23,10 @@ namespace TechMarket.Controllers
         [HttpPost]
         public IActionResult Create(SubCategory obj)
         {
+            if (obj.Name == obj.DisplayOrder.ToString())
+            {
+                ModelState.AddModelError("name", "Gösterim sırası ile ad aynı olamaz.");
+            }
             if (ModelState.IsValid)
             {
                 _db.SubCategories.Add(obj);
