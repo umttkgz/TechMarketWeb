@@ -31,6 +31,7 @@ namespace TechMarket.Controllers
             {
                 _db.Categories.Add(obj);
                 _db.SaveChanges();
+                TempData["success"] = "Kategori başarıyla oluşturuldu.";
                 return RedirectToAction("Index");
             }
             return View();
@@ -55,6 +56,7 @@ namespace TechMarket.Controllers
             {
                 _db.Categories.Update(obj);
                 _db.SaveChanges();
+                TempData["success"] = "Kategori başarıyla düzenlendi.";
                 return RedirectToAction("Index");
             }
             return View();
@@ -82,6 +84,7 @@ namespace TechMarket.Controllers
             }
             _db.Categories.Remove(obj);
             _db.SaveChanges();
+            TempData["success"] = "Kategori başarıyla silindi.";
             return RedirectToAction("Index");
         }
     }
