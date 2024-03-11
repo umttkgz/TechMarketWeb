@@ -2,7 +2,7 @@
 using Microsoft.Identity.Client;
 using TechMarket.Models;
 
-namespace TechMarket.Data
+namespace TechMarket.DataAccess.Data
 {
     public class AppDbContext: DbContext
     {

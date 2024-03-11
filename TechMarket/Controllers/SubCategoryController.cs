@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using TechMarket.Data;
+using TechMarket.DataAccess.Data;
 using TechMarket.Models;
 
 namespace TechMarket.Controllers
