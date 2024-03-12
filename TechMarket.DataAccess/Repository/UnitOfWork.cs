@@ -1,26 +1,25 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using TechMarket.DataAccess.Data;
 using TechMarket.DataAccess.Repository.IRepository;
-using TechMarket.Models;
 
 namespace TechMarket.DataAccess.Repository
 {
-    public class CategoryRepository : Repository<Category>, ICategoryRepository
+    public class UnitOfWork : IUnitOfWork
     {
         private AppDbContext _db;
-        public CategoryRepository(AppDbContext db): base(db)
+        public ICategoryRepository Category { get; private set; }
+        public UnitOfWork(AppDbContext db)
         {
             _db = db;
+            Category = new CategoryRepository(_db);
         }
-        public void Update(Category obj)
+        public void Save()
         {
-            _db.Categories.Update(obj);
+            _db.SaveChanges();
         }
     }
 }
