@@ -2,8 +2,9 @@
 using TechMarket.DataAccess.Data;
 using TechMarket.Models;
 
-namespace TechMarket.Controllers
+namespace TechMarket.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class SubCategoryController : Controller
     {
         private readonly AppDbContext _db;
