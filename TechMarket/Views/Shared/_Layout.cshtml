@@ -25,14 +25,24 @@
                             <a class="nav-link" asp-area="Customer" asp-controller="Home" asp-action="Index">Ana Menü</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="Admin" asp-controller="Category" asp-action="Index">Kategoriler</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" asp-area="Customer" asp-controller="Home" asp-action="Privacy">Gizlilik</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="Admin" asp-controller="SubCategory" asp-action="Index">Alt Kategoriler</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                İçerik Yönetimi
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="nav-item">
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Category" asp-action="Index">Category</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="SubCategory" asp-action="Index">Alt Kategoriler</a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+
+                            </ul>
                         </li>
+                        
                     </ul>
                 </div>
             </div>
