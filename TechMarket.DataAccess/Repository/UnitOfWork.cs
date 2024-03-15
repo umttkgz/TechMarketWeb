@@ -12,12 +12,16 @@ namespace TechMarket.DataAccess.Repository
     {
         private AppDbContext _db;
         public ICategoryRepository Category { get; private set; }
+        public ISubCategoryRepository SubCategory { get; private set; }
+        public IBrandRepository Brand { get; private set; }
         public IProductRepository Product { get; private set; }
         public UnitOfWork(AppDbContext db)
         {
             _db = db;
             Category = new CategoryRepository(_db);
+            SubCategory = new SubCategoryRepository(_db);
             Product = new ProductRepository(_db);
+            Brand = new BrandRepository(_db);
         }
         public void Save()
         {

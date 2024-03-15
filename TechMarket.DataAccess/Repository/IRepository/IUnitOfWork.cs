@@ -9,6 +9,8 @@ namespace TechMarket.DataAccess.Repository.IRepository
     public interface IUnitOfWork
     {
         ICategoryRepository Category {  get; }
+        ISubCategoryRepository SubCategory {  get; }
+        IBrandRepository Brand {  get; }
         IProductRepository Product {  get; }
         void Save();
     }

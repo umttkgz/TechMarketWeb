@@ -1,0 +1,60 @@
+﻿@model ProductVM
+<div class="card shadow border-0 my-4">
+    <div class="card-header bg-secondary bg-gradient ml-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">Delete Product</h2>
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-4">
+        <form method="post">
+            <input asp-for="Product.Id" hidden />
+            <div class="border p-3 mt-4">
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="Product.Title" disabled class="form-control border-0 shadow" />
+                    <label asp-for="Product.Title" class="ms-2"></label>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="Product.Description" disabled class="form-control border-0 shadow" />
+                    <label asp-for="Product.Description" class="ms-2"></label>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="Product.Description" disabled class="form-control border-0 shadow" />
+                    <label asp-for="Product.Description" class="ms-2"></label>
+                </div>
+                
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="Product.Price" disabled class="form-control border-0 shadow" />
+                    <label asp-for="Product.Price" class="ms-2"></label>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <select asp-for="@Model.Product.SubCategoryId" asp-items="@Model.SubCategoryList" class="form-select border-0 shadow">
+                        <option disabled selected>--Kategoriyi Seçin--</option>
+                    </select>
+                    <label asp-for="Product.SubCategoryId" class="ms-2"></label>
+                    <span asp-validation-for="Product.SubCategoryId" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <select asp-for="@Model.Product.BrandId" asp-items="@Model.BrandList" class="form-select border-0 shadow">
+                        <option disabled selected>--Markayı Seçin--</option>
+                    </select>
+                    <label asp-for="Product.BrandId" class="ms-2"></label>
+                    <span asp-validation-for="Product.BrandId" class="text-danger"></span>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-6 col-md-3">
+                        <button type="submit" class="btn btn-danger form-control">Sil</button>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <a asp-controller="Product" asp-action="Index" class="btn btn-secondary border  form-control">
+                            Listeye Dön
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+        </form>
+    </div>
+</div>

@@ -21,8 +21,4 @@
     <ProjectReference Include="..\TechMarket.DataAccess\TechMarket.DataAccess.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 </Project>
