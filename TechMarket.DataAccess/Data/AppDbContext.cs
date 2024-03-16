@@ -46,7 +46,8 @@ namespace TechMarket.DataAccess.Data
                     Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Aliquam consectetur diam tellus, vel dictum sapien aliquet vitae.Vestibulum ut libero.",
                     Price = 25000,
                     BrandId = 1,
-                    SubCategoryId = 5
+                    SubCategoryId = 5,
+                    ImageUrl = ""
                 },
                 new Product 
                 { 
@@ -55,7 +56,8 @@ namespace TechMarket.DataAccess.Data
                     Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus hendrerit libero ut nunc porta venenatis. Mauris scelerisque ligula metus, et.",
                     Price = 45000,
                     BrandId = 2,
-                    SubCategoryId = 1
+                    SubCategoryId = 1,
+                    ImageUrl = ""
                 },
                 new Product 
                 { 
@@ -64,7 +66,8 @@ namespace TechMarket.DataAccess.Data
                     Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tincidunt laoreet justo pharetra blandit. Integer nec dolor ut dolor congue.",
                     Price = 50000,
                     BrandId = 4,
-                    SubCategoryId = 4
+                    SubCategoryId = 4,
+                    ImageUrl = ""
                 }
                 );
         }
