@@ -20,7 +20,7 @@ namespace TechMarket.Areas.Admin.Controllers
             List<Product> objProductList = _unitOfWork.Product.GetAll().ToList();
             return View(objProductList);
         }
-        public IActionResult Create()
+        public IActionResult Upsert(int? id)
         {
             ProductVM productVM = new()
             {
@@ -38,61 +38,50 @@ namespace TechMarket.Areas.Admin.Controllers
                 }),
                 Product = new Product()
             };
-            return View(productVM);
+            if (id == null || id == 0)
+            {
+                //create
+                return View(productVM);
+            }
+            else
+            {
+                //update
+                productVM.Product = _unitOfWork.Product.Get(u => u.Id == id);
+                return View(productVM);
+            }
+
         }
         [HttpPost]
-        public IActionResult Create(ProductVM productVM)
+        public IActionResult Upsert(ProductVM productVM, IFormFile? file)
         {
             if (ModelState.IsValid)
             {
-                _unitOfWork.Product.Add(productVM.Product);
+                if (productVM.Product.Id == 0)
+                {
+                    _unitOfWork.Product.Add(productVM.Product);
+                }
+                else
+                {
+                    _unitOfWork.Product.Update(productVM.Product);
+                }
                 _unitOfWork.Save();
                 TempData["success"] = "Ürün başarıyla oluşturuldu.";
                 return RedirectToAction("Index");
             }
-            return View();
-        }
-        public IActionResult Edit(int? id)
-        {
-            if (id == null || id == 0)
+            else
             {
-                return NotFound();
-            }
-            Product? ProductFromDb = _unitOfWork.Product.Get(u => u.Id == id);
-            if (ProductFromDb == null)
-            {
-                return NotFound();
-            }
-            ProductVM productVM = new()
-            {
-                SubCategoryList = _unitOfWork.SubCategory
-                .GetAll().Select(u => new SelectListItem
+                productVM.SubCategoryList = _unitOfWork.SubCategory.GetAll().Select(u => new SelectListItem
                 {
                     Text = u.Name,
                     Value = u.Id.ToString()
-                }),
-                BrandList = _unitOfWork.Brand
-                .GetAll().Select(u => new SelectListItem
+                });
+                productVM.BrandList = _unitOfWork.Brand.GetAll().Select(u => new SelectListItem
                 {
                     Text = u.Name,
                     Value = u.Id.ToString()
-                }),
-                Product = new Product()
-            };
-            productVM.Product = ProductFromDb;
-            return View(productVM);
-        }
-        [HttpPost]
-        public IActionResult Edit(ProductVM productVM)
-        {
-            if (ModelState.IsValid)
-            {
-                _unitOfWork.Product.Update(productVM.Product);
-                _unitOfWork.Save();
-                TempData["success"] = "Ürün başarıyla düzenlendi.";
-                return RedirectToAction("Index");
+                });
+                return View(productVM);
             }
-            return View();
         }
         public IActionResult Delete(int? id)
         {
