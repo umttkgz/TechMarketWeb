@@ -5,7 +5,7 @@ using TechMarket.DataAccess.Repository.IRepository;
 using TechMarket.Models;
 using TechMarket.Models.ViewModels;
 
-namespace TechMarket.Controllers
+namespace TechMarket.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class ProductController : Controller

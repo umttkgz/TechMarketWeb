@@ -34,6 +34,7 @@ namespace TechMarket.Models
         [ForeignKey("BrandId")]
         [ValidateNever]
         public Brand Brand { get; set; }
+        [ValidateNever]
         public string? ImageUrl { get; set; }
 
     }

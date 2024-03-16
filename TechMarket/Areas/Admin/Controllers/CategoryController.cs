@@ -3,7 +3,7 @@ using TechMarket.DataAccess.Data;
 using TechMarket.DataAccess.Repository.IRepository;
 using TechMarket.Models;
 
-namespace TechMarket.Controllers
+namespace TechMarket.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class CategoryController : Controller
