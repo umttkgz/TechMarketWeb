@@ -25,8 +25,8 @@
                     <th>Başlık</th>
                     <th>Açıklama</th>
                     <th>Fiyat</th>
-                    <th>Alt Kategori ID</th>
-                    <th>Marka ID</th>
+                    <th>Marka</th>
+                    <th>Alt Kategori</th>
                     <th></th>
                 </tr>
             </thead>
@@ -42,10 +42,10 @@
                             @obj.Price
                         </td>
                         <td>
-                            @obj.BrandId
+                            @obj.Brand.Name
                         </td>
                         <td>
-                            @obj.SubCategoryId
+                            @obj.SubCategory.Name
                         </td>
                         <td>
                         </td>
