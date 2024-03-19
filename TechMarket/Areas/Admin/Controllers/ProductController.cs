@@ -164,7 +164,7 @@ namespace TechMarket.Areas.Admin.Controllers
             List<Product> objProductList = _unitOfWork.Product.GetAll(includeProperties: "SubCategory,Brand").ToList();
             return Json(new { data = objProductList });
         }
-
+        [HttpDelete]
         public IActionResult Delete(int? id)
         {
             var productToBeDeleted = _unitOfWork.Product.Get(u => u.Id == id);
@@ -172,16 +172,16 @@ namespace TechMarket.Areas.Admin.Controllers
             {
                 return Json(new { success = false, message = "Silerken hata oluştu." });
             }
-
-            var oldImagePath =
+            if (productToBeDeleted.ImageUrl != null)
+            {
+                var oldImagePath =
                            Path.Combine(_webHostEnvironment.WebRootPath,
                            productToBeDeleted.ImageUrl.TrimStart('\\'));
-
-            if (System.IO.File.Exists(oldImagePath))
-            {
-                System.IO.File.Delete(oldImagePath);
+                if (System.IO.File.Exists(oldImagePath))
+                {
+                    System.IO.File.Delete(oldImagePath);
+                }
             }
-
             _unitOfWork.Product.Remove(productToBeDeleted);
             _unitOfWork.Save();
 
