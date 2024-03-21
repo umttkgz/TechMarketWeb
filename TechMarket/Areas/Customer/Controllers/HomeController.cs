@@ -22,7 +22,11 @@ namespace TechMarket.Areas.Customer.Controllers
             IEnumerable<Product> productList = _unitOfWork.Product.GetAll(includeProperties: "SubCategory,Brand");
             return View(productList);
         }
-
+        public IActionResult Details(int productId)
+        {
+            Product product = _unitOfWork.Product.Get(u => u.Id == productId, includeProperties: "SubCategory,Brand");
+            return View(product);
+        }
         public IActionResult Privacy()
         {
             return View();
