@@ -112,49 +112,6 @@ namespace TechMarket.Areas.Admin.Controllers
                 return View(productVM);
             }
         }
-        //public IActionResult Delete(int? id)
-        //{
-        //    if (id == null || id == 0)
-        //    {
-        //        return NotFound();
-        //    }
-        //    Product? ProductFromDb = _unitOfWork.Product.Get(u => u.Id == id);
-        //    if (ProductFromDb == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    ProductVM productVM = new()
-        //    {
-        //        SubCategoryList = _unitOfWork.SubCategory
-        //        .GetAll().Select(u => new SelectListItem
-        //        {
-        //            Text = u.Name,
-        //            Value = u.Id.ToString()
-        //        }),
-        //        BrandList = _unitOfWork.Brand
-        //        .GetAll().Select(u => new SelectListItem
-        //        {
-        //            Text = u.Name,
-        //            Value = u.Id.ToString()
-        //        }),
-        //        Product = new Product()
-        //    };
-        //    productVM.Product = ProductFromDb;
-        //    return View(productVM);
-        //}
-        //[HttpPost, ActionName("Delete")]
-        //public IActionResult DeletePOST(int? id)
-        //{
-        //    Product? obj = _unitOfWork.Product.Get(u=>u.Id==id);
-        //    if (obj == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    _unitOfWork.Product.Remove(obj);
-        //    _unitOfWork.Save();
-        //    TempData["success"] = "Ürün başarıyla silindi.";
-        //    return RedirectToAction("Index");
-        //}
 
         #region API CALLS
 
