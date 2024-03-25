@@ -13,6 +13,7 @@ namespace TechMarket.DataAccess.Repository.IRepository
         IBrandRepository Brand {  get; }
         IProductRepository Product {  get; }
         ICompanyRepository Company {  get; }
+        IShoppingCartRepository ShoppingCart {  get; }
         void Save();
     }
 }

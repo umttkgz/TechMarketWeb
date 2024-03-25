@@ -16,6 +16,7 @@ namespace TechMarket.DataAccess.Repository
         public IBrandRepository Brand { get; private set; }
         public IProductRepository Product { get; private set; }
         public ICompanyRepository Company { get; private set; }
+        public IShoppingCartRepository ShoppingCart { get; private set; }
         public UnitOfWork(AppDbContext db)
         {
             _db = db;
@@ -24,6 +25,7 @@ namespace TechMarket.DataAccess.Repository
             Product = new ProductRepository(_db);
             Brand = new BrandRepository(_db);
             Company = new CompanyRepository(_db);
+            ShoppingCart = new ShoppingCartRepository(_db);
         }
         public void Save()
         {
