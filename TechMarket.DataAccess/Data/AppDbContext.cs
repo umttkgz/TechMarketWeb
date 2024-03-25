@@ -17,6 +17,7 @@ namespace TechMarket.DataAccess.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<Company> Companies { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -71,6 +72,38 @@ namespace TechMarket.DataAccess.Data
                     BrandId = 4,
                     SubCategoryId = 4,
                     ImageUrl = ""
+                }
+                );
+            modelBuilder.Entity<Company>().HasData(
+                new Company
+                {
+                    Id = 1,
+                    Name = "Tech Products & Solutions",
+                    StreetAddress = "Tech Sk.",
+                    City = "İstanbul",
+                    PostalCode = "76523",
+                    District = "Kadıköy",
+                    PhoneNumber = "278346872"
+                },
+                new Company
+                {
+                    Id = 2,
+                    Name = "Vivid Ad Agency",
+                    StreetAddress = "Vid Sk.",
+                    City = "Ankara",
+                    PostalCode = "763452",
+                    District = "Çankaya",
+                    PhoneNumber = "678138764"
+                },
+                new Company
+                {
+                    Id = 3,
+                    Name = "Nova Software Solutions",
+                    StreetAddress = "Nova Sk.",
+                    City = "İzmir",
+                    PostalCode = "87162",
+                    District = "Karşıyaka",
+                    PhoneNumber = "18367876"
                 }
                 );
         }

@@ -15,6 +15,7 @@ namespace TechMarket.DataAccess.Repository
         public ISubCategoryRepository SubCategory { get; private set; }
         public IBrandRepository Brand { get; private set; }
         public IProductRepository Product { get; private set; }
+        public ICompanyRepository Company { get; private set; }
         public UnitOfWork(AppDbContext db)
         {
             _db = db;
@@ -22,6 +23,7 @@ namespace TechMarket.DataAccess.Repository
             SubCategory = new SubCategoryRepository(_db);
             Product = new ProductRepository(_db);
             Brand = new BrandRepository(_db);
+            Company = new CompanyRepository(_db);
         }
         public void Save()
         {

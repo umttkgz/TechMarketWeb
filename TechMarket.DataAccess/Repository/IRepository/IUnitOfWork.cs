@@ -12,6 +12,7 @@ namespace TechMarket.DataAccess.Repository.IRepository
         ISubCategoryRepository SubCategory {  get; }
         IBrandRepository Brand {  get; }
         IProductRepository Product {  get; }
+        ICompanyRepository Company {  get; }
         void Save();
     }
 }
