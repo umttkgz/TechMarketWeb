@@ -22,5 +22,7 @@ namespace TechMarket.Models
         [ForeignKey("CompanyId")]
         [ValidateNever]
         public Company Company { get; set; }
+        [NotMapped]
+        public double Price { get; set; }
     }
 }
