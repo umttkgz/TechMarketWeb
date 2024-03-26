@@ -56,6 +56,7 @@ namespace TechMarket.Areas.Customer.Controllers
                 //add cart record
                 _unitOfWork.ShoppingCart.Add(shoppingCart);
             }
+            TempData["success"] = "Alýþveriþ sepeti baþarýyla güncellendi.";
             _unitOfWork.Save();
             return RedirectToAction(nameof(Index));
         }
