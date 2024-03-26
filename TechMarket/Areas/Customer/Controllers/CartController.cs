@@ -30,8 +30,7 @@ namespace TechMarket.Areas.Customer.Controllers
 
             foreach (var cart in ShoppingCartVM.ShoppingCartList)
             {
-                double price = cart.Product.Price;
-                ShoppingCartVM.OrderTotal += (price * cart.Count);
+                ShoppingCartVM.OrderTotal += (cart.Product.Price * cart.Count);
             }
             return View(ShoppingCartVM);
         }
