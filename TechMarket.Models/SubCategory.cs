@@ -18,6 +18,7 @@ namespace TechMarket.Models
         [Range(1, 100, ErrorMessage = "Gösterim sırası 1 ile 100 arasında bir değer olmalıdır.")]
         public int DisplayOrder { get; set; }
         [Required]
+        [Display(Name = "Kategori")]
         public int CategoryId { get; set; }
         [ForeignKey("CategoryId")]
         [ValidateNever]

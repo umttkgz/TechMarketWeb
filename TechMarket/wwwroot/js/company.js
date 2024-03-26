@@ -18,7 +18,7 @@ function loadDataTable() {
                 data: 'id',
                 "render": function (data) {
                     return `<div class="w-75 btn-group" role="group">
-                     <a href="/admin/company/upsert?id=${data}" class="btn btn-primary mx-2"> <i class="bi bi-pencil-square"></i> Düzenle</a>               
+                     <a href="/admin/company/upsert?id=${data}" class="btn btn-primary mx-2"> <i class="bi bi-pencil-square"></i> Duzenle</a>               
                      <a onClick=Delete('/admin/company/delete/${data}') class="btn btn-danger mx-2"> <i class="bi bi-trash-fill"></i> Sil</a>
                     </div>`
                 },
@@ -31,12 +31,12 @@ function loadDataTable() {
 function Delete(url) {
     Swal.fire({
         title: 'Emin misiniz?',
-        text: "Bu iþlem geri döndürülemez!",
+        text: "Bu islem geri dondurulemez!",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        cancelButtonText: "Vazgeç",
+        cancelButtonText: "Vazgec",
         confirmButtonText: 'Evet, eminim!'
     }).then((result) => {
         if (result.isConfirmed) {
